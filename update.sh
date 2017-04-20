@@ -5,16 +5,12 @@ openbsd_branch=`cat OPENBSD_BRANCH`
 
 # pull in latest upstream code
 echo "pulling upstream openbsd source"
-if [ ! -d openbsd ]; then
-	if [ -z "$LIBRESSL_GIT" ]; then
-		git clone https://github.com/libressl-portable/openbsd.git
-	else
-		git clone $LIBRESSL_GIT/openbsd
-	fi
-fi
-(cd openbsd
- git checkout $openbsd_branch
- git pull --rebase)
+
+COMMIT=4257c55b2fc5329aa20b33559f0bce13aa33daba
+wget -O openbsd.zip https://github.com/libressl-portable/openbsd/archive/$COMMIT.zip
+rm -rf openbsd-$COMMIT
+unzip openbsd.zip
+mv openbsd-$COMMIT openbsd
 
 # setup source paths
 CWD=`pwd`
