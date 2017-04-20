@@ -6,7 +6,8 @@ openbsd_branch=`cat OPENBSD_BRANCH`
 # pull in latest upstream code
 echo "pulling upstream openbsd source"
 
-COMMIT=4257c55b2fc5329aa20b33559f0bce13aa33daba
+#COMMIT=4257c55b2fc5329aa20b33559f0bce13aa33daba
+COMMIT=d5d6024269dc8e34872f0c5e98bcad045a7d19ad
 wget -O openbsd.zip https://github.com/libressl-portable/openbsd/archive/$COMMIT.zip
 rm -rf openbsd-$COMMIT
 unzip openbsd.zip
